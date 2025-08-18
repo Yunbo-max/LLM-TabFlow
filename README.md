@@ -120,11 +120,14 @@ The tool generates the following outputs in `results/{dataset_name}/`:
 If you use this code in your research, please cite our paper:
 
 ```bibtex
-@article{long2025llm,
-  title={LLM-TabFlow: Synthetic Tabular Data Generation with Inter-column Logical Relationship Preservation},
-  author={Long, Yunbo and Xu, Liming and Brintrup, Alexandra},
-  journal={arXiv preprint arXiv:2503.02161},
-  year={2025}
+@misc{long2025llmtablogicpreservingintercolumnlogical,
+      title={LLM-TabLogic: Preserving Inter-Column Logical Relationships in Synthetic Tabular Data via Prompt-Guided Latent Diffusion}, 
+      author={Yunbo Long and Liming Xu and Alexandra Brintrup},
+      year={2025},
+      eprint={2503.02161},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2503.02161}, 
 }
 ```
 ## License

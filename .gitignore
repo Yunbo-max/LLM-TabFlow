@@ -1,0 +1,10 @@
+.env
+.env.*
+__pycache__/
+*.pyc
+.DS_Store
+.ipynb_checkpoints/
+
+# Local results / large artifacts
+results/
+*.log

@@ -1,4 +1,8 @@
 import argparse
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def setup_args():
     parser = argparse.ArgumentParser()
@@ -9,10 +13,16 @@ def setup_args():
     return parser.parse_args()
 
 def get_api_key(model):
-    if model == 'gpt':
-        return "your key"
+    if model in ('gpt', 'gpt-4'):
+        return os.getenv("OPENAI_API_KEY")
     elif model == 'deepseek':
-        return "your key"
+        return os.getenv("DEEPSEEK_API_KEY")
+    elif model == 'claude':
+        return os.getenv("ANTHROPIC_API_KEY")
+    elif model == 'llama':
+        return os.getenv("TOGETHER_API_KEY")
+    elif model in ('qwen', 'minimax'):
+        return os.getenv("SILICONFLOW_API_KEY")
     else:
         return None
 
@@ -515,7 +525,31 @@ def get_column_descriptions(data_name):
         # TRAUM  - Trauma
         # TSURG  - Thoracic Surgical
         # VSURG  - Vascular Surgical
+        """,
+
+    'purchasing': """
+        supplier_number: Integer. Unique identifier for the supplier.
+        supplier_name: Categorical. Name of the supplier company.
+        order_created_date: Datetime. Date when the purchase order was created.
+        planned_delivery_date: Datetime. Planned delivery date agreed upon at order creation.
+        actual_delivery_date: Datetime. Actual date the goods were delivered.
+        material_number: Integer. Unique identifier for the material/product ordered.
+        material_description: Categorical. Description of the material/product.
+        quantity: Numeric. Number of units ordered.
+        unit_price: Numeric. Price per unit of the material.
+        discount_rate: Numeric. Discount percentage applied to the order (0 to 1).
+        net_amount: Numeric. Net purchase amount before tax (quantity × unit_price).
+        gross_amount: Numeric. Gross purchase amount after discount (net_amount × (1 - discount_rate)).
+        currency: Categorical. Currency of the transaction (e.g., EUR, USD).
+        purchasing_group: Categorical. Internal purchasing group responsible for the order.
+        plant: Categorical. Manufacturing plant or warehouse receiving the goods.
+        order_status: Categorical. Status of the purchase order (e.g., Completed, Pending, Cancelled).
+        payment_terms: Categorical. Payment terms agreed with supplier (e.g., Net 30, Net 60).
+        delivery_indicator: Categorical. Indicates whether delivery was on time, early, or late.
+        goods_receipt_date: Datetime. Date when goods were officially received and recorded.
+        invoice_date: Datetime. Date of the supplier invoice.
+        tax_amount: Numeric. Tax amount applied to the order.
         """
     }
-    
+
     return descriptions.get(data_name, "")

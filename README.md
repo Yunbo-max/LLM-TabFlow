@@ -160,6 +160,14 @@ Across two industrial supply chain datasets and two downstream classification ta
 
 See the paper for full tables on F1, fidelity, machine-learning efficacy, MLE, and privacy.
 
+## Related work
+
+This work is part of a line of research on preserving and evaluating inter-column logical relationships in synthetic tabular data:
+
+* **[LLM-TabLogic](https://arxiv.org/abs/2503.02161)** ([arXiv:2503.02161](https://arxiv.org/abs/2503.02161)) — the precursor that first introduces preserving inter-column logical relationships via prompt-guided latent diffusion.
+* **[TabLogicEval](https://github.com/Yunbo-max/TabLogicEval)** — the companion *metrics* paper, 🎉 **accepted at the [ICLR 2025 Tiny Papers Track](https://iclr.cc/Conferences/2025).** It proposes HCS / MDI / DSI for evaluating inter-column logical preservation; TabKG addresses the gaps these metrics expose.
+* **TabKG** (this repo) — the refined journal version that makes the operational logic explicit as a validated Column Relationship Knowledge Graph and enforces it by construction.
+
 ## Citation
 
 ```bibtex
@@ -167,8 +175,24 @@ See the paper for full tables on F1, fidelity, machine-learning efficacy, MLE, a
   title   = {Generating Logically Consistent Synthetic Supply Chain Data with LLM-Driven Knowledge Graph Reasoning},
   author  = {Long, Yunbo and Xu, Liming and Brintrup, Alexandra},
   journal = {International Journal of Production Research},
-  year    = {2026},
-  note    = {Under review}
+  year    = {2026}
+}
+
+@inproceedings{long2025logicaltabular,
+  title     = {Evaluating Inter-Column Logical Relationships in Synthetic Tabular Data Generation},
+  author    = {Long, Yunbo and Xu, Liming and Brintrup, Alexandra},
+  booktitle = {ICLR 2025 Tiny Papers Track},
+  year      = {2025}
+}
+
+@misc{long2025llmtablogicpreservingintercolumnlogical,
+  title         = {LLM-TabLogic: Preserving Inter-Column Logical Relationships in Synthetic Tabular Data via Prompt-Guided Latent Diffusion},
+  author        = {Yunbo Long and Liming Xu and Alexandra Brintrup},
+  year          = {2025},
+  eprint        = {2503.02161},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2503.02161}
 }
 ```
 
